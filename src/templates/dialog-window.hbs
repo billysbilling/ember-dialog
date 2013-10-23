@@ -1,0 +1,15 @@
+<div class="window-header">
+    <h1>
+        {{title}}
+    </h1>
+</div>
+
+<div class="window-body" style="min-height: 80px;">
+    {{message}}
+</div>
+
+<div class="window-footer">
+    {{#each option in options}}
+        <button {{bindAttr class=":button option.primary:primary"}} {{action clickOption option}}>{{option.text}}</button>
+    {{/each}}
+</div>
