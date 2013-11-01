@@ -1,3 +1,6 @@
+var i18n = require('i18n').module('ember_dialog', require.resolve('../locales')),
+    t = i18n.t;
+
 module.exports = function(container) {
     container.register('component:dialog-window', require('./dialog-window'));
     
