@@ -1,5 +1,5 @@
 {
-    "component.dialog.confirm": "Bekræft",
-    "component.dialog.ok": "OK",
-    "component.dialog.cancel": "Annuller"
+    "confirm": "Bekræft",
+    "ok": "OK",
+    "cancel": "Annuller"
 }
