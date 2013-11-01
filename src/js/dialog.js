@@ -7,7 +7,7 @@ module.exports = function(container) {
     function dialog(title, message, options) {
         return new Em.RSVP.Promise(function(resolve) {
             var w = container.lookup('component:dialog-window');
-            w.set('title', title || t('component.dialog.confirm'));
+            w.set('title', title || t('confirm'));
             w.set('message', message);
             w.set('options', options);
             w.on('clickedOption', function(option) {
@@ -22,18 +22,20 @@ module.exports = function(container) {
 
     return {
         confirm: function(title, message, yesText, cancelText) {
-            return dialog(title || t('component.dialog.confirm'), message, [
+            return dialog(title || t('confirm'), message, [
                 {
                     value: 'yes',
-                    text: yesText || t('component.dialog.ok'),
+                    text: yesText || t('ok'),
                     primary: true
                 },
                 {
                     value: false,
-                    text: cancelText || t('component.dialog.cancel')
+                    text: cancelText || t('cancel')
                 }
             ]);
         },
         dialog: dialog
     }
 };
+
+module.exports.lang = i18n.lang;
