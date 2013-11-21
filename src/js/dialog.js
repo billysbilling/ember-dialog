@@ -1,5 +1,5 @@
-var i18n = require('i18n').module('ember_dialog', require.resolve('../locales')),
-    t = i18n.t;
+var i18nContext = require('i18n-context')('ember_dialog', require.resolve('../locales')),
+    t = i18nContext.t;
 
 module.exports = function(container) {
     container.register('component:dialog-window', require('./dialog-window'));
@@ -38,4 +38,9 @@ module.exports = function(container) {
     }
 };
 
-module.exports.lang = i18n.lang;
+module.exports.locale = i18nContext.locale;
+
+module.exports.lang = function() {
+    console.warn('.lang() is deprecated. Use .locale() instead');
+    return i18nContext.locale.apply(null, arguments);
+};
