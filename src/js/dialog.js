@@ -10,6 +10,7 @@ module.exports = function(container) {
             w.set('title', title || t('confirm'));
             w.set('message', message);
             w.set('options', options);
+            w.set('focusSelector', 'button.primary');
             w.on('clickedOption', function(option) {
                 if (option.value !== false) {
                     resolve(option.value);
