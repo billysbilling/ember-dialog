@@ -1,6 +1,6 @@
 {
   "name": "ember-dialog",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "homepage": "https://github.com/billysbilling/ember-dialog",
   "main": "src/js/dialog.js",
   "billy-builder": {
