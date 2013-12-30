@@ -10,6 +10,6 @@
 
 <div class="window-footer">
     {{#each option in options}}
-        <button {{bindAttr class=":button option.primary:primary"}} {{action clickOption option}}>{{option.text}}</button>
+        <button {{bindAttr class=":button option.primary:primary option.warning:warning"}} {{action clickOption option}}>{{option.text}}</button>
     {{/each}}
 </div>

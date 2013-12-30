@@ -21,19 +21,27 @@ module.exports = function(container) {
         });
     }
 
+    function confirm(title, message, yesText, yesPrimary, yesWarning, cancelText) {
+        return dialog(title || t('confirm'), message, [
+            {
+                value: 'yes',
+                text: yesText || t('ok'),
+                primary: yesPrimary,
+                warning: yesWarning
+            },
+            {
+                value: false,
+                text: cancelText || t('cancel')
+            }
+        ]);
+    }
+
     return {
         confirm: function(title, message, yesText, cancelText) {
-            return dialog(title || t('confirm'), message, [
-                {
-                    value: 'yes',
-                    text: yesText || t('ok'),
-                    primary: true
-                },
-                {
-                    value: false,
-                    text: cancelText || t('cancel')
-                }
-            ]);
+            return confirm(title, message, yesText, true, false, cancelText);
+        },
+        confirmWarning: function(title, message, yesText, cancelText) {
+            return confirm(title, message, yesText, false, true, cancelText);
         },
         dialog: dialog
     }
