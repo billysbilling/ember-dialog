@@ -27,11 +27,13 @@ module.exports = function(container) {
                 value: 'yes',
                 text: yesText || t('ok'),
                 primary: yesPrimary,
-                warning: yesWarning
+                warning: yesWarning,
+                align: 'right'
             },
             {
                 value: false,
-                text: cancelText || t('cancel')
+                text: cancelText || t('cancel'),
+                align: 'left'
             }
         ]);
     }
@@ -44,7 +46,7 @@ module.exports = function(container) {
             return confirm(title, message, yesText, false, true, cancelText);
         },
         dialog: dialog
-    }
+    };
 };
 
 module.exports.locale = i18nContext.locale;

@@ -9,7 +9,17 @@
 </div>
 
 <div class="window-footer">
-    {{#each option in options}}
+    <div class="left">
+        {{#each option in leftOptions}}
+            <button {{bindAttr class=":button option.primary:primary option.warning:warning"}} {{action clickOption option}}>{{option.text}}</button>
+        {{/each}}
+    </div>
+    {{#each option in centerOptions}}
         <button {{bindAttr class=":button option.primary:primary option.warning:warning"}} {{action clickOption option}}>{{option.text}}</button>
     {{/each}}
+    <div class="right">
+        {{#each option in rightOptions}}
+            <button {{bindAttr class=":button option.primary:primary option.warning:warning"}} {{action clickOption option}}>{{option.text}}</button>
+        {{/each}}
+    </div>
 </div>
