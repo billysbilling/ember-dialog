@@ -3,7 +3,7 @@ module.exports = require('ember-window').extend({
 
     closable: false,
 
-    width: 550,
+    width: 400,
 
     title: '',
     message: '',
