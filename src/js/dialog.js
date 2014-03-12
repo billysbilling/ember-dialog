@@ -3,14 +3,15 @@ var i18nContext = require('i18n-context')('ember_dialog', require.resolve('../lo
 
 module.exports = function(container) {
     container.register('component:dialog-window', require('./dialog-window'));
-    
-    function dialog(title, message, options) {
+
+    function dialog(title, message, options, properties) {
+        properties = properties || {};
         return new Em.RSVP.Promise(function(resolve) {
             var w = container.lookup('component:dialog-window');
             w.set('title', title || t('confirm'));
             w.set('message', message);
             w.set('options', options);
-            w.set('focusSelector', 'button.primary');
+            w.setProperties(properties);
             w.on('clickedOption', function(option) {
                 if (option.value !== false) {
                     resolve(option.value);
@@ -35,7 +36,9 @@ module.exports = function(container) {
                 text: cancelText || t('cancel'),
                 align: 'left'
             }
-        ]);
+        ], {
+            focusSelector: '.window-footer .right button'
+        });
     }
 
     return {
