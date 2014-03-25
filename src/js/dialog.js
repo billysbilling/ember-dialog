@@ -37,7 +37,8 @@ module.exports = function(container) {
                 align: 'left'
             }
         ], {
-            focusSelector: '.window-footer .right button'
+            focusSelector: '.window-footer .right button',
+            closable: true
         });
     }
 
