@@ -12,8 +12,13 @@ module.exports = function(container) {
             w.set('message', message);
             w.set('options', options);
             w.setProperties(properties);
+            w.on('didCancel', function(option) {
+                if (!properties.ignoreFalsy) {
+                    resolve(null);
+                }
+            });
             w.on('clickedOption', function(option) {
-                if (option.value !== false) {
+                if (!properties.ignoreFalsy || option.value) {
                     resolve(option.value);
                 }
                 w.close();
@@ -38,7 +43,8 @@ module.exports = function(container) {
             }
         ], {
             focusSelector: '.window-footer .right button',
-            closable: true
+            closable: true,
+            ignoreFalsy: true
         });
     }
 
