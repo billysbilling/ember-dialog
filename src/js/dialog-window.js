@@ -1,4 +1,8 @@
-module.exports = require('ember-window').extend({
+var Window = require('ember-window');
+
+module.exports = Window.extend({
+    layout: Window.proto().layout,
+
     template: require('../templates/dialog-window'),
 
     closable: false,
